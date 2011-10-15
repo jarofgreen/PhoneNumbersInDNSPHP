@@ -27,7 +27,7 @@ By using DNS, we can tap into the caching and scalability already in place.
 
 By using subdomains, we could allow users at a domain to have an entry.
 For instance, jeff@gmail.com could opt-in to publish his phone number and then
-he could tell people to call jeff.gmail.com.
+he could tell people to call "jeff.gmail.com".
 
 This repository is some simple PHP scripts to demonstrate this.
 All code, and the idea, is under the BSD License

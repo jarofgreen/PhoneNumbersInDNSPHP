@@ -8,7 +8,7 @@ require 'PhoneNumbersInDNS.php';
 class TestPhoneNumbersInDNS extends PHPUnit_Framework_TestCase {
 
 	public function thingsThatShouldBeNullData() {
-        return array(
+		return array(
 			array('ouhteueu'),   // random rubbish
 			array('v=spf1 a mx'), // a spf record
 			array('v=phone1'), // phone1 with no numbers
@@ -18,7 +18,7 @@ class TestPhoneNumbersInDNS extends PHPUnit_Framework_TestCase {
 			array('v=phone1 44 80uu0345455'), // phone1 with no numbers,
 			array('v=phone2'), // the future doesn't exist yet
 		);
-    }
+	}
 
 	/**
 	 * @dataProvider thingsThatShouldBeNullData()
@@ -27,13 +27,13 @@ class TestPhoneNumbersInDNS extends PHPUnit_Framework_TestCase {
 		$this->assertNull(getPhoneNumberFromDNSTextString($txt));
 	}
 
-	
+
 	public function thingsData() {
-        return array(
+		return array(
 			array('v=phone1 44 3700100222 BBC Scotland','44','3700100222','BBC Scotland'),
 			array('v=phone1 44 3700100222 ','44','3700100222','3700100222'),
 		);
-    }
+	}
 
 	/**
 	 * @dataProvider thingsData()

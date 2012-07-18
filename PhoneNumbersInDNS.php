@@ -32,7 +32,8 @@ function getPhoneNumbersFromDNS($domainName) {
 function getPhoneNumberFromDNSTextString($TXTString) {
 	if (strtolower(substr($TXTString,0,9)) == 'v=phone1 ') {
 		$bits = explode(' ', $TXTString, 4);
-		if (count($bits) > 2 && filter_var($bits[1],FILTER_VALIDATE_INT) && filter_var($bits[2],FILTER_VALIDATE_INT)) {
+		// we can't use filter_var($bits[1],FILTER_VALIDATE_INT) because on 32 bit systems the range is not big enought for most phone numbers!
+		if (count($bits) > 2 && ctype_digit($bits[1]) && ctype_digit($bits[2])) {
 			return array(
 					'country'=>$bits[1],
 					'number'=>$bits[2],
